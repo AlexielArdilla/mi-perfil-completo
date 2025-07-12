@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Gonzalo Vera | Desarrollador, Escritor y Guía Espiritual</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins for headers, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #D1D5DB; /* text-gray-300 */
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #FBBF24, #F59E0B); /* amber-400 to amber-500 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .nav-link.active {
+            color: #FBBF24; /* amber-400 */
+            font-weight: bold;
+        }
+        .book-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white">Alejandro G. Vera</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Sobre mí</a>
+                <a href="#educator" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Educador</a>
+                <a href="#author" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Autor</a>
+                <a href="#technologist" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Tecnólogo</a>
+                <a href="#blog" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Blog</a>
+            </nav>
+            <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-block bg-amber-500 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors">
+                Contacto
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Sobre mí</a>
+            <a href="#educator" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Educador</a>
+            <a href="#author" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Autor</a>
+            <a href="#technologist" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Tecnólogo</a>
+            <a href="#blog" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
+             <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="absolute inset-0 bg-gray-900/80"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                    El punto de encuentro entre <br>
+                    <span class="text-gradient">Código, Literatura y Conciencia</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    Soy un polímata digital que fusiona la lógica del desarrollo de software, la creatividad de la escritura y la profundidad de la guía espiritual para construir puentes hacia el conocimiento.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#author" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
+                        Explora mis Libros
+                    </a>
+                    <a href="#educator" class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
+                        Ver mis Cursos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Unificando Mundos Dispares</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
+                <p class="text-lg text-gray-400 max-w-4xl mx-auto">
+                    Mi carrera es un testimonio de que no tenemos que elegir una sola pasión. El informe sobre mi presencia digital destacó una verdad fundamental: mi fuerza reside en la intersección de mis identidades. Soy Desarrollador Full-Stack, certificado por la UTN, con una pasión por la ciberseguridad. Soy un autor prolífico con más de 30 obras que exploran desde la filosofía hasta manuales técnicos. Y soy un guía espiritual y educador que ha llegado a más de 57,000 estudiantes en todo el mundo. Este sitio es el puente que une esas islas.
+                </p>
+            </div>
+        </section>
+
+        <!-- The Three Pillars Section -->
+        <div class="bg-gray-800 py-20 md:py-32">
+            <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
+                
+                <!-- Pillar 1: Educator -->
+                <div id="educator" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
+                     <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">El Educador</h3>
+                    <p class="text-gray-400 mb-4">Impactando a más de <span class="text-amber-400 font-bold">57,000 estudiantes</span> en Udemy, comparto conocimiento en tecnología, artes creativas y desarrollo espiritual.</p>
+                    <a href="https://www.udemy.com/user/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver todos mis cursos &rarr;</a>
+                </div>
+
+                <!-- Pillar 2: Author -->
+                <div id="author" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">El Autor</h3>
+                    <p class="text-gray-400 mb-4">Una bibliografía de más de <span class="text-amber-400 font-bold">30 títulos</span> que abarcan ficción filosófica, manuales de hacking y guías de esoterismo.</p>
+                    <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Explorar mi obra literaria &rarr;</a>
+                </div>
+
+                <!-- Pillar 3: Technologist -->
+                <div id="technologist" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">El Tecnólogo</h3>
+                    <p class="text-gray-400 mb-4">Desarrollador Full-Stack y Experto en Ciberseguridad. Mi identidad profesional <span class="text-amber-400 font-bold">"AlexielArdilla"</span> en GitHub.</p>
+                    <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver mi código y proyectos &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Author / Books Section -->
+        <section class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Una Biblioteca a tu Alcance</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Desde la profundidad del absurdo filosófico hasta guías prácticas sobre ciberseguridad, cada libro es un mundo por descubrir.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Book Card 1 -->
+                    <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/400x600/1F2937/FBBF24?text=Sobre+Durmientes\ny+Jugadores" alt="Portada del libro Sobre Durmientes y Jugadores" class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-white text-lg">Sobre Durmientes y Jugadores</h4>
+                            <p class="text-sm text-gray-400 mt-1">Ficción Filosófica</p>
+                        </div>
+                    </div>
+                    <!-- Book Card 2 -->
+                    <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/400x600/1F2937/FBBF24?text=Libro+Completo\ndel+Hacker" alt="Portada del Libro Completo del Hacker" class="w-full h-auto object-cover">
+                         <div class="p-6">
+                            <h4 class="font-bold text-white text-lg">Libro Completo del Hacker</h4>
+                            <p class="text-sm text-gray-400 mt-1">Manual Técnico</p>
+                        </div>
+                    </div>
+                    <!-- Book Card 3 -->
+                    <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/400x600/1F2937/FBBF24?text=La+Revelacion\ndel+Tres+Veces\nGrande" alt="Portada del libro La Revelación del Tres Veces Grande" class="w-full h-auto object-cover">
+                         <div class="p-6">
+                            <h4 class="font-bold text-white text-lg">La Revelación del Tres Veces Grande</h4>
+                            <p class="text-sm text-gray-400 mt-1">Esoterismo</p>
+                        </div>
+                    </div>
+                    <!-- Book Card 4 -->
+                    <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/400x600/1F2937/FBBF24?text=Poesias+Misticas\nPara+Locos\nBohemios" alt="Portada del libro Poesías Místicas Para Locos Bohemios" class="w-full h-auto object-cover">
+                         <div class="p-6">
+                            <h4 class="font-bold text-white text-lg">Poesías Místicas Para Locos Bohemios</h4>
+                            <p class="text-sm text-gray-400 mt-1">Poesía</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                     <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
+                        Ver todos los títulos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-20 md:py-32 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">El Punto de Encuentro: Mi Blog</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Aquí es donde las ideas convergen. Exploro las conexiones inesperadas entre la tecnología, el arte y la filosofía.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Blog Post Example 1 -->
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h4 class="font-bold text-white text-xl">El Código como Poesía: Buscando la Elegancia en la Lógica</h4>
+                        <p class="text-gray-400 mt-2">Un análisis sobre cómo los principios de la buena poesía pueden aplicarse para escribir un código más limpio y eficiente.</p>
+                    </div>
+                    <!-- Blog Post Example 2 -->
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h4 class="font-bold text-white text-xl">Arquetipos del Tarot para el Diseño de Personajes</h4>
+                        <p class="text-gray-400 mt-2">Cómo usar la sabiduría ancestral de los arcanos para crear personajes de novela o videojuegos más profundos y resonantes.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="https://loscuerposprisiones.blogspot.com/" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
+                        Leer más en mi Blog
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-white">Conectemos</h3>
+                <p class="text-gray-400 mt-2">Encuéntrame en mis plataformas principales.</p>
+                <div class="flex justify-center space-x-6 mt-6">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <!-- Amazon -->
+                     <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.95,11.23a1,1,0,0,0-.45-0.34,1,1,0,0,0-.56-0.09,12.87,12.87,0,0,0-7.89,0,1,1,0,0,0-1,.43,10.6,10.6,0,0,0-2.43,6.84,9.3,9.3,0,0,0,.15,1.72,1,1,0,0,0,.63.78,1,1,0,0,0,.84,0,1,1,0,0,0,.52-0.77,7.2,7.2,0,0,1-.12-1.24,8.41,8.41,0,0,1,2-5.22,9.6,9.6,0,0,1,6.51-3.11Z"/><path d="M22.59,16.29a1,1,0,0,0-1.2-.51,7.34,7.34,0,0,1-4.86,1.7,7.31,7.31,0,0,1-4.87-1.7,1,1,0,0,0-1.2.51,1,1,0,0,0,.51,1.2A9.31,9.31,0,0,0,16.5,20a9.34,9.34,0,0,0,5.58-2.51,1,1,0,0,0,.51-1.2Z"/></svg>
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500 mt-8">&copy; <span id="year"></span> Alejandro Gonzalo Vera. Todos los derechos reservados. <br> José C. Paz, Buenos Aires, Argentina.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // --- Set current year in footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
