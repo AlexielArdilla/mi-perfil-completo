@@ -1,52 +1,116 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alejandro Gonzalo Vera | Desarrollador, Escritor y Guía Espiritual</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
     <!-- Google Fonts: Poppins for headers, Inter for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-            color: #D1D5DB; /* text-gray-300 */
+            background-color: #111827;
+            /* bg-gray-900 */
+            color: #D1D5DB;
+            /* text-gray-300 */
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             font-family: 'Poppins', sans-serif;
         }
+
         .text-gradient {
-            background-image: linear-gradient(to right, #FBBF24, #F59E0B); /* amber-400 to amber-500 */
+            background-image: linear-gradient(to right, #FBBF24, #F59E0B);
+            /* amber-400 to amber-500 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
         }
+
         .nav-link.active {
-            color: #FBBF24; /* amber-400 */
+            color: #FBBF24;
+            /* amber-400 */
             font-weight: bold;
         }
+
         .book-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .book-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Aquí agregué estilos para la parte de Tarot*/
+        .card {
+            background-color: rgba(245, 245, 245, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid #D9A624;
+            background-color: #2E4057;
+            color: #F5F5F5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            min-height: 80px;
+            position: relative;
+        }
+
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #D9A624;
+            margin: 0.5rem 0;
+        }
     </style>
 </head>
+
 <body class="antialiased">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header id="header"
+        class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white">Alejandro G. Vera</a>
             <nav class="hidden md:flex space-x-8 items-center">
@@ -55,13 +119,15 @@
                 <a href="#features" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Autor</a>
                 <a href="#features" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Tecnólogo</a>
                 <a href="#blog" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Blog</a>
-                <a href="https://alexielardilla.github.io/Guia-completa-de-tarot-astrologia-y-cold-reading/" class="nav-link text-gray-300 hover:text-amber-400 transition-colors" target="_blank">Tarot</a>
+                <a href="#tarot" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Tarot</a>
             </nav>
-            <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-block bg-amber-500 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors">
-                Contacto
+            <a href="https://alexielardilla.github.io/Guia-completa-de-tarot-astrologia-y-cold-reading/" target="_blank" rel="noopener noreferrer"
+                class="hidden md:inline-block bg-amber-500 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors">
+                Guía cósmica
             </a>
             <button id="mobile-menu-button" class="md:hidden text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
@@ -73,14 +139,16 @@
             <a href="#author" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Autor</a>
             <a href="#tecnologo" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Tecnólogo</a>
             <a href="#blog" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
-            <a href="https://alexielardilla.github.io/Guia-completa-de-tarot-astrologia-y-cold-reading/" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800" target="_blank">Tarot</a>
-             <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Contacto</a>
+            <a href="#tarot" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800" target="_blank">Tarot</a>
+            <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer"
+                class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Contacto</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center"
+            style="background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
             <div class="absolute inset-0 bg-gray-900/80"></div>
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
@@ -88,13 +156,16 @@
                     <span class="text-gradient">Código, Literatura y Conciencia</span>
                 </h1>
                 <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                    Soy un polímata digital que fusiona la lógica del desarrollo de software, la creatividad de la escritura y la profundidad de la guía espiritual para construir puentes hacia el conocimiento.
+                    Soy un polímata digital que fusiona la lógica del desarrollo de software, la creatividad de la
+                    escritura y la profundidad de la guía espiritual para construir puentes hacia el conocimiento.
                 </p>
                 <div class="mt-8 flex justify-center gap-4">
-                    <a href="#author2" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
+                    <a href="#author2"
+                        class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
                         Explora mis Libros
                     </a>
-                    <a href="https://www.udemy.com/user/alejandro-gonzalo-vera/" target="_blank" class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
+                    <a href="https://www.udemy.com/user/alejandro-gonzalo-vera/" target="_blank"
+                        class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
                         Ver mis Cursos
                     </a>
                 </div>
@@ -107,7 +178,12 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Unificando Mundos Dispares</h2>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
                 <p class="text-lg text-gray-400 max-w-4xl mx-auto">
-                    Mi carrera es un testimonio de que no tenemos que elegir una sola pasión. El informe sobre mi presencia digital destacó una verdad fundamental: mi fuerza reside en la intersección de mis identidades. Soy Desarrollador Full-Stack, certificado por la UTN, con una pasión por la ciberseguridad. Soy un autor prolífico con más de 30 obras que exploran desde la filosofía hasta manuales técnicos. Y soy un guía espiritual y educador que ha llegado a más de 57,000 estudiantes en todo el mundo. Este sitio es el puente que une esas islas.
+                    Mi carrera es un testimonio de que no tenemos que elegir una sola pasión. El informe sobre mi
+                    presencia digital destacó una verdad fundamental: mi fuerza reside en la intersección de mis
+                    identidades. Soy Desarrollador Full-Stack, certificado por la UTN, con una pasión por la
+                    ciberseguridad. Soy un autor prolífico con más de 30 obras que exploran desde la filosofía hasta
+                    manuales técnicos. Y soy un guía espiritual y educador que ha llegado a más de 57,000 estudiantes en
+                    todo el mundo. Este sitio es el puente que une esas islas.
                 </p>
             </div>
         </section>
@@ -115,35 +191,62 @@
         <!-- The Three Pillars Section -->
         <div id="features" class="bg-gray-800 py-20 md:py-32">
             <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
-                
+
                 <!-- Pillar 1: Educator -->
                 <div id="educador" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
-                     <div class="flex justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-amber-400">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">El Educador</h3>
-                    <p class="text-gray-400 mb-4">Impactando a más de <span class="text-amber-400 font-bold">57,000 estudiantes</span> en Udemy, comparto conocimiento en tecnología, artes creativas y desarrollo espiritual.</p>
-                    <a href="https://www.udemy.com/user/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver todos mis cursos &rarr;</a>
+                    <p class="text-gray-400 mb-4">Impactando a más de <span class="text-amber-400 font-bold">57,000
+                            estudiantes</span> en Udemy, comparto conocimiento en tecnología, artes creativas y
+                        desarrollo espiritual.</p>
+                    <a href="https://www.udemy.com/user/alejandro-gonzalo-vera/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver todos mis cursos
+                        &rarr;</a>
                 </div>
 
                 <!-- Pillar 2: Author -->
                 <div id="author" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
                     <div class="flex justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-amber-400">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">El Autor</h3>
-                    <p class="text-gray-400 mb-4">Una bibliografía de más de <span class="text-amber-400 font-bold">30 títulos</span> que abarcan ficción filosófica, manuales de hacking y guías de esoterismo.</p>
-                    <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Explorar mi obra literaria &rarr;</a>
+                    <p class="text-gray-400 mb-4">Una bibliografía de más de <span class="text-amber-400 font-bold">30
+                            títulos</span> que abarcan ficción filosófica, manuales de hacking y guías de esoterismo.
+                    </p>
+                    <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks"
+                        target="_blank" rel="noopener noreferrer"
+                        class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Explorar mi obra
+                        literaria &rarr;</a>
                 </div>
 
                 <!-- Pillar 3: Technologist -->
                 <div id="tecnologo" class="text-center p-8 bg-gray-900 rounded-xl shadow-lg">
                     <div class="flex justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-amber-400">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">El Tecnólogo</h3>
-                    <p class="text-gray-400 mb-4">Desarrollador Full-Stack y Experto en Ciberseguridad. Mi identidad profesional <span class="text-amber-400 font-bold">"AlexielArdilla"</span> en GitHub.</p>
-                    <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer" class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver mi código y proyectos &rarr;</a>
+                    <p class="text-gray-400 mb-4">Desarrollador Full-Stack y Experto en Ciberseguridad. Mi identidad
+                        profesional <span class="text-amber-400 font-bold">"AlexielArdilla"</span> en GitHub.</p>
+                    <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer"
+                        class="font-bold text-amber-400 hover:text-amber-500 transition-colors">Ver mi código y
+                        proyectos &rarr;</a>
                 </div>
             </div>
         </div>
@@ -154,13 +257,16 @@
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Una Biblioteca a tu Alcance</h2>
                     <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Desde la profundidad del absurdo filosófico hasta guías prácticas sobre ciberseguridad, cada libro es un mundo por descubrir.</p>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Desde la profundidad del absurdo filosófico hasta
+                        guías prácticas sobre ciberseguridad, cada libro es un mundo por descubrir.</p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Book Card 1 -->
                     <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                        <a href="PDFs/01 Manual de Linux completo A G V.pdf" target="_blank"><img src="images/01_Manual_de_Linux_page-0001.jpg" alt="Portada del libro Manual de Linux" class="w-full h-auto object-cover"></a>
+                        <a href="PDFs/01 Manual de Linux completo A G V.pdf" target="_blank"><img
+                                src="images/01_Manual_de_Linux_page-0001.jpg" alt="Portada del libro Manual de Linux"
+                                class="w-full h-auto object-cover"></a>
                         <div class="p-6">
                             <h4 class="font-bold text-white text-lg">Manual de Linux</h4>
                             <p class="text-sm text-gray-400 mt-1">Sistemas operativos/manual</p>
@@ -168,31 +274,40 @@
                     </div>
                     <!-- Book Card 2 -->
                     <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                       <a href="PDFs/02 Textos Herméticos y Hermes Trismegisto_.Alejandro G Vera.pdf" target="_blank"><img src="images/02_Textos_Herméticos_page-0001.jpg" alt="Portada del Libro Textos herméticos" class="w-full h-auto object-cover"></a>
-                         <div class="p-6">
+                        <a href="PDFs/02 Textos Herméticos y Hermes Trismegisto_.Alejandro G Vera.pdf"
+                            target="_blank"><img src="images/02_Textos_Herméticos_page-0001.jpg"
+                                alt="Portada del Libro Textos herméticos" class="w-full h-auto object-cover"></a>
+                        <div class="p-6">
                             <h4 class="font-bold text-white text-lg">Textos herméticos</h4>
                             <p class="text-sm text-gray-400 mt-1">Ocultismo</p>
                         </div>
                     </div>
                     <!-- Book Card 3 -->
                     <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                       <a href="PDFs/03 Guía integral Ethical hacking Kali A G V.pdf" target="_blank"><img src="images/03_Guía_integral_Ethical_hacking_page-0001.jpg" alt="Portada del libro Guía integral de Ethical hacking" class="w-full h-auto object-cover"></a>
-                         <div class="p-6">
+                        <a href="PDFs/03 Guía integral Ethical hacking Kali A G V.pdf" target="_blank"><img
+                                src="images/03_Guía_integral_Ethical_hacking_page-0001.jpg"
+                                alt="Portada del libro Guía integral de Ethical hacking"
+                                class="w-full h-auto object-cover"></a>
+                        <div class="p-6">
                             <h4 class="font-bold text-white text-lg">Guía integral de Ethical hacking</h4>
                             <p class="text-sm text-gray-400 mt-1">IT/Ethical Hacking</p>
                         </div>
                     </div>
                     <!-- Book Card 4 -->
                     <div class="book-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                       <a href="PDFs/04 El Arte de la Palabra - Alejandro G Vera.pdf" target="_blank"><img src="images/04_El_Arte_de_la_Palabra_page-0001.jpg" alt="Portada del libro El arte de la palabra" class="w-full h-auto object-cover"></a>
-                         <div class="p-6">
+                        <a href="PDFs/04 El Arte de la Palabra - Alejandro G Vera.pdf" target="_blank"><img
+                                src="images/04_El_Arte_de_la_Palabra_page-0001.jpg"
+                                alt="Portada del libro El arte de la palabra" class="w-full h-auto object-cover"></a>
+                        <div class="p-6">
                             <h4 class="font-bold text-white text-lg">El arte de la palabra</h4>
                             <p class="text-sm text-gray-400 mt-1">Poesía</p>
                         </div>
                     </div>
                 </div>
                 <div class="text-center mt-12">
-                     <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
+                    <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
                         Ver todos los títulos
                     </a>
                 </div>
@@ -205,85 +320,410 @@
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">El Punto de Encuentro: Mi Blog</h2>
                     <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Aquí es donde las ideas convergen. Exploro las conexiones inesperadas entre la tecnología, el arte y la filosofía.</p>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Aquí es donde las ideas convergen. Exploro las
+                        conexiones inesperadas entre la tecnología, el arte y la filosofía.</p>
                 </div>
                 <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Blog Post Example 1 -->
                     <div class="bg-gray-900 p-6 rounded-lg">
-                        <h4 class="font-bold text-white text-xl">El Código como Poesía: Buscando la Elegancia en la Lógica</h4>
-                        <p class="text-gray-400 mt-2">Un análisis sobre cómo los principios de la buena poesía pueden aplicarse para escribir un código más limpio y eficiente.</p>
+                        <h4 class="font-bold text-white text-xl">El Código como Poesía: Buscando la Elegancia en la
+                            Lógica</h4>
+                        <p class="text-gray-400 mt-2">Un análisis sobre cómo los principios de la buena poesía pueden
+                            aplicarse para escribir un código más limpio y eficiente.</p>
                     </div>
                     <!-- Blog Post Example 2 -->
                     <div class="bg-gray-900 p-6 rounded-lg">
                         <h4 class="font-bold text-white text-xl">Arquetipos del Tarot para el Diseño de Personajes</h4>
-                        <p class="text-gray-400 mt-2">Cómo usar la sabiduría ancestral de los arcanos para crear personajes de novela o videojuegos más profundos y resonantes.</p>
+                        <p class="text-gray-400 mt-2">Cómo usar la sabiduría ancestral de los arcanos para crear
+                            personajes de novela o videojuegos más profundos y resonantes.</p>
                     </div>
                 </div>
-                 <div class="text-center mt-12">
-                     <a href="https://loscuerposprisiones.blogspot.com/" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
+                <div class="text-center mt-12">
+                    <a href="https://loscuerposprisiones.blogspot.com/" target="_blank" rel="noopener noreferrer"
+                        class="bg-transparent border-2 border-amber-500 text-amber-500 font-bold py-3 px-8 rounded-lg hover:bg-amber-500 hover:text-gray-900 transition-colors text-lg">
                         Leer más en mi Blog
                     </a>
                 </div>
             </div>
         </section>
-    </main>
+        <!-- Tarot Section -->
+        <div id="tarot" class="container mx-auto p-4 md:p-8">
 
-    <!-- Footer -->
-    <footer class="bg-gray-900">
-        <div class="container mx-auto px-6 py-12">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold text-white">Conectemos</h3>
-                <p class="text-gray-400 mt-2">Encuéntrame en mis plataformas principales.</p>
-                <div class="flex justify-center space-x-6 mt-6">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
-                    </a>
-                    <!-- GitHub -->
-                    <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-                    </a>
-                    <!-- Amazon -->
-                     <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.95,11.23a1,1,0,0,0-.45-0.34,1,1,0,0,0-.56-0.09,12.87,12.87,0,0,0-7.89,0,1,1,0,0,0-1,.43,10.6,10.6,0,0,0-2.43,6.84,9.3,9.3,0,0,0,.15,1.72,1,1,0,0,0,.63.78,1,1,0,0,0,.84,0,1,1,0,0,0,.52-0.77,7.2,7.2,0,0,1-.12-1.24,8.41,8.41,0,0,1,2-5.22,9.6,9.6,0,0,1,6.51-3.11Z"/><path d="M22.59,16.29a1,1,0,0,0-1.2-.51,7.34,7.34,0,0,1-4.86,1.7,7.31,7.31,0,0,1-4.87-1.7,1,1,0,0,0-1.2.51,1,1,0,0,0,.51,1.2A9.31,9.31,0,0,0,16.5,20a9.34,9.34,0,0,0,5.58-2.51,1,1,0,0,0,.51-1.2Z"/></svg>
-                    </a>
+            <header class="text-center my-12 md:my-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Tarot Holístico</h1>
+                <h2 class="text-2xl md:text-3xl text-[#D9A624]">Una Herramienta de Autoconocimiento</h2>
+                <p class="max-w-3xl mx-auto mt-4 text-lg text-gray-300">En Yoga y Ayurveda Sharanam Ganesha,
+                    redescubrimos el tarot como un espejo del alma, no como un oráculo del destino.</p>
+            </header>
+
+            <main class="space-y-16 md:space-y-24">
+
+                <section class="card rounded-lg shadow-lg p-6 md:p-8 text-center md:col-span-2">
+                    <h3 class="text-3xl font-bold mb-4 text-[#8DB587]">El Futuro No Está Escrito en Piedra</h3>
+                    <p class="max-w-3xl mx-auto text-gray-300 mb-8">Tu futuro es un abanico de posibilidades que se crea
+                        con cada decisión. El tarot ilumina tu presente para que puedas elegir tu camino con conciencia
+                        y poder.</p>
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                        <div class="p-4 bg-[#2E4057] rounded-lg shadow-inner">
+                            <span class="text-4xl">🤔</span>
+                            <p class="font-bold mt-2">Tu Presente</p>
+                        </div>
+                        <div class="hidden md:block text-4xl text-[#D9A624] font-black">&rarr;</div>
+                        <div class="block md:hidden text-4xl text-[#D9A624] font-black">&darr;</div>
+                        <div class="flex space-x-4">
+                            <div class="p-4 border-2 border-dashed border-[#8DB587] rounded-lg">
+                                <p>Camino A</p>
+                            </div>
+                            <div class="p-4 border-2 border-dashed border-[#D57E1C] rounded-lg">
+                                <p>Camino B</p>
+                            </div>
+                            <div class="p-4 border-2 border-dashed border-[#A52535] rounded-lg">
+                                <p>Camino C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="max-w-3xl mx-auto text-gray-400 mt-8 text-sm">La lectura te muestra las energías
+                        disponibles y los potenciales, pero la elección final siempre es tuya.</p>
+                </section>
+
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="card rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-center text-[#D9A624]">El Propósito de la Lectura</h3>
+                        <p class="text-gray-300 mb-6 text-center">Una sesión de Tarot Holístico te proporciona claridad
+                            para dos acciones fundamentales en tu crecimiento personal.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-4xl text-[#8DB587]">🔧</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Realizar Cambios Necesarios</h4>
+                                    <p class="text-gray-400">Identificar y superar obstáculos, creencias limitantes y
+                                        patrones de comportamiento para forjar un nuevo camino.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-4xl text-[#D57E1C]">🧘</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Aceptar lo Inmutable</h4>
+                                    <p class="text-gray-400">Desarrollar la sabiduría y la paz interior para aceptar las
+                                        circunstancias fuera de tu control.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-3xl font-bold mb-6 text-center text-[#8DB587]">Un Enfoque 100% Terapéutico</h3>
+                        <p class="text-center text-gray-300 mb-6">Nuestra metodología integra tres potentes disciplinas
+                            para catalizar tu transformación. Cada parte es fundamental para el enfoque holístico.</p>
+                        <div class="chart-container">
+                            <canvas id="methodologyChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card rounded-lg shadow-lg p-6 md:p-8 md:col-span-2">
+                    <h3 class="text-3xl font-bold mb-6 text-center text-[#D9A624]">Elige tu Herramienta de Diálogo</h3>
+                    <p class="text-center text-gray-300 max-w-3xl mx-auto mb-8">Trabajamos con mazos de tarot de gran
+                        riqueza simbólica. La elección depende de tu nivel de experiencia y el tipo de exploración que
+                        buscas.</p>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="decksChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-400 mt-6 text-sm">El gráfico muestra el nivel de recomendación para
+                        consultantes que se inician en el Tarot Holístico. El Rider-Waite-Smith (RWS) es el más
+                        aconsejado por su claridad visual y simbólica.</p>
+                </section>
+
+                <section class="text-center md:col-span-2">
+                    <h3 class="text-3xl font-bold mb-8 text-[#8DB587]">Tu Viaje de Transformación</h3>
+                    <div
+                        class="flex flex-col md:flex-row md:items-start md:justify-center md:space-x-4 space-y-4 md:space-y-0">
+                        <div class="flow-step">1. Inquietud y Búsqueda</div>
+                        <div class="flow-arrow self-center">&darr;</div>
+                        <div class="flow-step">2. Sesión de Tarot Holístico</div>
+                        <div class="flow-arrow self-center">&darr;</div>
+                        <div class="flow-step">3. Claridad y Comprensión</div>
+                        <div class="flow-arrow self-center">&darr;</div>
+                        <div class="flow-step">4. Plan de Acción</div>
+                        <div class="flow-arrow self-center">&darr;</div>
+                        <div class="flow-step">5. Empoderamiento y Paz</div>
+                    </div>
+                </section>
+
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="card rounded-lg shadow-lg p-6 md:p-8 text-center">
+                        <h3 class="text-3xl font-bold mb-4 text-[#D9A624]">Precios Accesibles</h3>
+                        <p class="text-gray-300 text-lg">Creemos que el autoconocimiento debe estar al alcance de todos.
+                            Ofrecemos sesiones individuales a precios conscientes.</p>
+                    </div>
+                    <div class="card rounded-lg shadow-lg p-6 md:p-8 text-center bg-[#8DB587] text-[#2E4057]">
+                        <h3 class="text-3xl font-bold mb-2">¡Oferta Especial!</h3>
+                        <div class="flex items-center justify-center space-x-4 my-4">
+                            <div class="text-7xl font-bold">4x</div>
+                            <div class="text-left">
+                                <p class="text-2xl font-bold">Lecturas</p>
+                                <p class="text-2xl font-bold">en 1 Mes</p>
+                            </div>
+                        </div>
+                        <p class="font-semibold">Compra un combo mensual y profundiza en tu proceso a un precio
+                            reducido. Ideal para un seguimiento intensivo.</p>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contacto" class="py-20 md:py-32 bg-gray-900 text-[#F5F5F5]">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-bold mb-4">Agenda tu Sesión <br>(Próximamente)</h2>
+                            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Da el primer paso hacia una mayor
+                                claridad y
+                                empoderamiento. Haz clic en el botón para enviarme un mensaje por WhatsApp y coordinar
+                                tu
+                                sesión.</p><br>
+                                <h1>(Zona José C. Paz Centro)</h1>
+                        </div>
+                        <div class="text-center">
+                            <a href="https://wa.me/5491130034xxx?text=Hola,%20quisiera%20agendar%20una%20sesión%20de%20Tarot%20Holístico."
+                                target="_blank"
+                                class="inline-flex items-center justify-center cta-button bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg">
+                                <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.31 3.42 16.78L2.03 21.96L7.37 20.58C8.79 21.36 10.36 21.8 12.04 21.8H12.05C17.5 21.8 21.95 17.35 21.95 11.89C21.95 9.28 20.93 6.9 19.19 5.16C17.45 3.42 15.06 2.4 12.04 2.4L12.04 2ZM10.13 6.93H10.14C10.46 6.93 10.76 6.94 10.93 6.95C11.1 6.96 11.23 6.97 11.25 6.97C11.58 6.97 11.8 7.07 11.96 7.29C12.12 7.51 12.49 8.19 12.53 8.29C12.58 8.39 12.62 8.51 12.58 8.64C12.53 8.77 12.49 8.81 12.35 8.95C12.2 9.09 12.08 9.2 11.96 9.28C11.84 9.36 11.71 9.45 11.53 9.63C11.35 9.81 11.16 10.02 11.24 10.18C11.32 10.34 11.77 11.04 12.39 11.6C13.23 12.37 13.92 12.68 14.16 12.84C14.4 13 14.53 12.96 14.69 12.8C14.85 12.64 15.24 12.18 15.45 11.93C15.66 11.68 15.87 11.64 16.11 11.7C16.35 11.76 17.31 12.24 17.55 12.36C17.79 12.48 18.01 12.56 18.05 12.64C18.09 12.72 18.09 13.04 17.87 13.46C17.65 13.88 16.88 14.54 16.42 14.68C15.96 14.82 15.41 14.85 15.06 14.72C14.71 14.59 13.88 14.31 12.88 13.43C11.66 12.34 10.89 11.03 10.82 10.89C10.75 10.75 10.13 9.92 10.13 9.28C10.13 8.64 10.65 8.16 10.77 8.02C10.89 7.88 11.03 7.87 11.16 7.87C11.29 7.87 11.42 7.87 11.54 7.99C11.66 8.11 11.68 8.28 11.73 8.36C11.78 8.44 11.8 8.48 11.78 8.54L11.77 8.55C11.76 8.56 11.75 8.57 11.73 8.58C10.96 9.3 10.13 8.61 10.13 6.93Z" />
+                                </svg>
+                                Agendar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-gray-900">
+                <div class="container mx-auto px-6 py-12">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white">Conectemos</h3>
+                        <p class="text-gray-400 mt-2">Encuéntrame en mis plataformas principales.</p>
+                        <div class="flex justify-center space-x-6 mt-6">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank"
+                                rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <!-- GitHub -->
+                            <a href="https://github.com/AlexielArdilla" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <!-- Amazon -->
+                            <a href="https://www.amazon.co.uk/stores/Alejandro-Gonzalo-Vera/author/B00GI26T22/allbooks"
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M20.95,11.23a1,1,0,0,0-.45-0.34,1,1,0,0,0-.56-0.09,12.87,12.87,0,0,0-7.89,0,1,1,0,0,0-1,.43,10.6,10.6,0,0,0-2.43,6.84,9.3,9.3,0,0,0,.15,1.72,1,1,0,0,0,.63.78,1,1,0,0,0,.84,0,1,1,0,0,0,.52-0.77,7.2,7.2,0,0,1-.12-1.24,8.41,8.41,0,0,1,2-5.22,9.6,9.6,0,0,1,6.51-3.11Z" />
+                                    <path
+                                        d="M22.59,16.29a1,1,0,0,0-1.2-.51,7.34,7.34,0,0,1-4.86,1.7,7.31,7.31,0,0,1-4.87-1.7,1,1,0,0,0-1.2.51,1,1,0,0,0,.51,1.2A9.31,9.31,0,0,0,16.5,20a9.34,9.34,0,0,0,5.58-2.51,1,1,0,0,0,.51-1.2Z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-8">&copy; <span id="year"></span> Alejandro Gonzalo Vera.
+                            Todos los derechos reservados. <br> José C. Paz, Buenos Aires, Argentina.</p>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-500 mt-8">&copy; <span id="year"></span> Alejandro Gonzalo Vera. Todos los derechos reservados. <br> José C. Paz, Buenos Aires, Argentina.</p>
-            </div>
-        </div>
-    </footer>
+            </footer>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+            <script>
+                // --- Mobile Menu Toggle ---
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
 
-        // --- Active Nav Link on Scroll ---
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
+                // --- Active Nav Link on Scroll ---
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        if (pageYOffset >= sectionTop - 100) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').includes(current)) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+
+                // --- Set current year in footer ---
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+            <script>
+                function wrapText(text, maxLength) {
+                    if (typeof text !== 'string' || text.length <= maxLength) {
+                        return text;
+                    }
+                    const words = text.split(' ');
+                    let lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
+                            lines.push(currentLine);
+                            currentLine = word;
+                        } else {
+                            currentLine = currentLine ? currentLine + ' ' + word : word;
+                        }
+                    });
+                    lines.push(currentLine);
+                    return lines;
                 }
-            });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
+                const tooltipTitleCallback = (tooltipItems) => {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    }
+                    return label;
+                };
 
-        // --- Set current year in footer ---
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+                const methodologyChartCtx = document.getElementById('methodologyChart').getContext('2d');
+                const methodologyChart = new Chart(methodologyChartCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Enfoque Holístico'],
+                        datasets: [
+                            {
+                                label: 'Counseling',
+                                data: [33.3],
+                                backgroundColor: '#8DB587',
+                                borderColor: '#2E4057',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Coaching',
+                                data: [33.3],
+                                backgroundColor: '#D9A624',
+                                borderColor: '#2E4057',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'PNL',
+                                data: [33.4],
+                                backgroundColor: '#D57E1C',
+                                borderColor: '#2E4057',
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    color: '#F5F5F5',
+                                    font: { size: 14 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: tooltipTitleCallback
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                display: false,
+                                max: 100,
+                            },
+                            y: {
+                                stacked: true,
+                                ticks: {
+                                    color: '#F5F5F5',
+                                    font: { size: 14 }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                const decksChartCtx = document.getElementById('decksChart').getContext('2d');
+                const decksChart = new Chart(decksChartCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            wrapText('Rider-Waite-Smith (RWS)', 16),
+                            wrapText('Tarot Esotérico', 16),
+                            wrapText('Tarot de Marsella', 16)
+                        ],
+                        datasets: [{
+                            label: 'Nivel de Recomendación para Principiantes',
+                            data: [95, 60, 25],
+                            backgroundColor: ['#8DB587', '#D9A624', '#D57E1C'],
+                            borderColor: '#2E4057',
+                            borderWidth: 2,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Nivel de Recomendación para Principiantes (%)',
+                                color: '#F5F5F5',
+                                font: { size: 16 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: tooltipTitleCallback
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    color: '#F5F5F5',
+                                    font: { size: 12 }
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    color: '#F5F5F5',
+                                    font: { size: 14 }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
 </body>
+
 </html>
