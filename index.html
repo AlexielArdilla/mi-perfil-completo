@@ -144,14 +144,14 @@
             <a href="#cursos" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Tecnólogo</a>
             <a href="#blog" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
             <a href="#poet" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Poeta</a>
-            <a href="https://www.linkedin.com/in/alejandro-gonzalo-vera/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.instagram.com/alejandro.g.vera.escritor/" target="_blank" rel="noopener noreferrer"
                 class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Contacto</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center"
+        <section id="hero" class="min-h-screen flex items-center bg-cover bg-center pt-20"
             style="background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
             <div class="absolute inset-0 bg-gray-900/80"></div>
             <div class="container mx-auto px-6 text-center relative z-10">
@@ -163,7 +163,7 @@
                     Soy un polímata digital que fusiona la lógica del desarrollo de software, la creatividad de la
                     escritura y la profundidad de la guía espiritual para construir puentes hacia el conocimiento.
                 </p>
-                <div class="mt-8 flex justify-center gap-4">
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#author2"
                         class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-600 transition-colors text-lg">
                         Explora mis Libros
@@ -782,8 +782,8 @@
                 ¿Preguntas, comentarios?
             </p>
             <a href="https://www.instagram.com/alejandro.g.vera.escritor/"
-                class="inline-block bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors">
-                <i class="fas fa-envelope mr-2"></i> Instagram:@alejandro.g.vera.escritor
+                class="inline-block w-full max-w-xs break-words text-center bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors">
+                <i class="fas fa-envelope mr-2"></i> Instagram: @alejandro.g.vera.escritor
             </a>
             <div class="flex justify-center space-x-6 mt-10">
                 <a href="https://github.com/AlexielArdilla" class="text-gray-400 hover:text-sky-400 transition-colors"
@@ -809,6 +809,15 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // --- Cerrar el menú móvil al hacer click en un enlace ---
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
 
         // --- Active Nav Link on Scroll ---
         const sections = document.querySelectorAll('section[id]');
