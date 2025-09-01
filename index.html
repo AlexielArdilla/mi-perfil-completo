@@ -993,53 +993,65 @@
             }
         });
 
-        // --- Counter-Up Initialization ---
+        /* --- Counter-Up Initialization ---
         $(document).ready(function () {
             $('.counter').counterUp({
                 delay: 10,
                 time: 700
             });
-        });
+        });*/
     </script>
+
+
     <script>
-        // Animación de los contadores
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll(".counter");
 
-            const animateCounter = (counter) => {
-                const target = +counter.textContent.replace(/\./g, ""); // quita puntos en miles
-                let count = 0;
-                const increment = target / 200; // velocidad de la animación
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
 
-                const updateCounter = () => {
-                    count += increment;
-                    if (count < target) {
-                        counter.textContent = Math.floor(count).toLocaleString("es-ES");
-                        requestAnimationFrame(updateCounter);
+            // 1) Parseo robusto: saco todo lo que no sea dígito
+            const parseNum = (str) => {
+                const digits = (str || '').toString().replace(/[^\d]/g, '');
+                return digits ? parseInt(digits, 10) : 0;
+            };
+
+            // 2) Formateador propio: SIEMPRE usa punto como separador de miles
+            const formatMiles = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+            // 3) Animación
+            const animateCounter = (el) => {
+                const target = parseNum(el.textContent);
+                if (!target) { el.textContent = '0'; return; }
+
+                let current = 0;
+                const steps = 200;                                // suavidad de la animación
+                const increment = Math.max(1, Math.round(target / steps));
+
+                const step = () => {
+                    current += increment;
+                    if (current < target) {
+                        el.textContent = formatMiles(current);
+                        requestAnimationFrame(step);
                     } else {
-                        counter.textContent = target.toLocaleString("es-ES");
+                        el.textContent = formatMiles(target);
                     }
                 };
 
-                updateCounter();
+                step();
             };
 
-            const observer = new IntersectionObserver(
-                (entries, obs) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            animateCounter(entry.target);
-                            obs.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
+            // 4) Arranca al entrar en viewport
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
 
-            counters.forEach((counter) => {
-                observer.observe(counter);
-            });
+            counters.forEach((el) => io.observe(el));
         });
+
     </script>
 </body>
 
