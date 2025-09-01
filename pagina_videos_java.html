@@ -306,6 +306,18 @@
         });
 
         // Función para cambiar el video principal y su descripción
+        /*function changeVideo(videoId) {
+            const video = videosData.find(v => v.id === videoId);
+            if (video) {
+                const iframe = document.getElementById('main-video-player');
+                iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=0&controls=1&showinfo=0&rel=0`;
+
+                // Actualizar el título y la descripción del video principal
+                document.getElementById('main-video-title').textContent = video.title;
+                document.getElementById('main-video-description').textContent = video.description;
+            }
+        }*/
+
         function changeVideo(videoId) {
             const video = videosData.find(v => v.id === videoId);
             if (video) {
@@ -315,6 +327,9 @@
                 // Actualizar el título y la descripción del video principal
                 document.getElementById('main-video-title').textContent = video.title;
                 document.getElementById('main-video-description').textContent = video.description;
+
+                // 👇 Hacer foco en el reproductor principal
+                iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 

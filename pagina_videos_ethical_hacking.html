@@ -156,12 +156,16 @@
             <a href="index2.html" class="text-xl font-bold text-white">Freelance Applications</a>
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Navigation links for courses -->
-                <a href="index2.html#python" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Python</a>
-                <a href="index2.html#java" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Java</a>
-                <a href="index2.html#html-css" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">HTML & CSS</a>
+                <a href="index2.html#python"
+                    class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Python</a>
+                <a href="index2.html#java"
+                    class="nav-link text-gray-300 hover:text-amber-400 transition-colors">Java</a>
+                <a href="index2.html#html-css"
+                    class="nav-link text-gray-300 hover:text-amber-400 transition-colors">HTML & CSS</a>
                 <a href="index2.html#javascript"
                     class="nav-link text-gray-300 hover:text-amber-400 transition-colors">JavaScript</a>
-                <a href="index2.html#ethical_hacking" class="nav-link text-gray-300 hover:text-amber-400 transition-colors">E. Hacking</a>
+                <a href="index2.html#ethical_hacking"
+                    class="nav-link text-gray-300 hover:text-amber-400 transition-colors">E. Hacking</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -177,7 +181,7 @@
             <a href="#html-css" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">HTML & CSS</a>
             <a href="#javascript" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">JavaScript</a>
             <a href="#ethical_hacking" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">E. Hacking</a>
-        </div> 
+        </div>
     </header>
     <div class="container mx-auto p-4 md:p-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -246,22 +250,22 @@
 
     <script>
         // Array de objetos de video con sus IDs, títulos, duraciones y descripciones
-       const videosData = [
-    { id: '8jDDwgx4Hrw', title: '1. Introducción al Ethical Hacking', duration: '10:24 min', thumbnail: 'https://img.youtube.com/vi/8jDDwgx4Hrw/mqdefault.jpg', description: 'Comenzamos explorando qué es el Ethical Hacking y por qué es importante en la ciberseguridad.' },
-    { id: 't8wJwgYlI64', title: '2. Fundamentos de Redes', duration: '11:07 min', thumbnail: 'https://img.youtube.com/vi/t8wJwgYlI64/mqdefault.jpg', description: 'Se explican los conceptos básicos de redes, protocolos y cómo se conectan los sistemas.' },
-    { id: 'DKi1lqi9omo', title: '3. Modelos OSI y TCP/IP', duration: '23:23 min', thumbnail: 'https://img.youtube.com/vi/DKi1lqi9omo/mqdefault.jpg', description: 'Comprensión de los modelos de comunicación en red esenciales para un hacker ético.' },
-    { id: 'AZiPuKdn1bM', title: '4. Herramientas de Análisis de Red', duration: '17:22 min', thumbnail: 'https://img.youtube.com/vi/AZiPuKdn1bM/mqdefault.jpg', description: 'Exploración de herramientas clave como Wireshark y su uso en el análisis de tráfico.' },
-    { id: 'L8teBS2lryI', title: '5. Reconocimiento Pasivo', duration: '14:33 min', thumbnail: 'https://img.youtube.com/vi/L8teBS2lryI/mqdefault.jpg', description: 'Técnicas para recolectar información sin interactuar directamente con los objetivos.' },
-    { id: '6Mvg27n9SME', title: '6. Reconocimiento Activo', duration: '24:57 min', thumbnail: 'https://img.youtube.com/vi/6Mvg27n9SME/mqdefault.jpg', description: 'Cómo interactuar directamente con el sistema objetivo para descubrir información útil.' },
-    // video 7 no disponible
-    { id: 'uP0awE8bRL8', title: '8. Escaneo de Puertos con Nmap', duration: '15:00 min', thumbnail: 'https://img.youtube.com/vi/uP0awE8bRL8/mqdefault.jpg', description: 'Aprende a usar Nmap para identificar puertos abiertos y servicios disponibles.' },
-    { id: 'FKPOek2Z5yA', title: '9. Vulnerabilidades y Exploits', duration: '2:43 min', thumbnail: 'https://img.youtube.com/vi/FKPOek2Z5yA/mqdefault.jpg', description: 'Introducción a cómo encontrar y explotar vulnerabilidades en sistemas.' },
-    { id: 'PDHkzPiUx8w', title: '10. Ingeniería Social', duration: '21:01 min', thumbnail: 'https://img.youtube.com/vi/PDHkzPiUx8w/mqdefault.jpg', description: 'Técnicas de manipulación psicológica para obtener acceso no autorizado.' },
-    { id: 'gIhCBO6mbQc', title: '11. Ataques a Contraseñas', duration: 'Loading... min', thumbnail: 'https://img.youtube.com/vi/gIhCBO6mbQc/mqdefault.jpg', description: 'Exploración de ataques comunes como fuerza bruta y diccionario.' },
-    { id: 'Vtk7eLtE-YU', title: '12. Metasploit Framework', duration: '8:42 min', thumbnail: 'https://img.youtube.com/vi/Vtk7eLtE-YU/mqdefault.jpg', description: 'Uso básico de Metasploit para ejecutar exploits contra sistemas vulnerables.' },
-    { id: '2cSY5NY-xI4', title: '13. Reportes y Buenas Prácticas', duration: '10:50 min', thumbnail: 'https://img.youtube.com/vi/2cSY5NY-xI4/mqdefault.jpg', description: 'Cómo documentar los hallazgos y recomendaciones éticas del proceso de hacking.' },
-    { id: 'Y-Z2z6rjErs', title: '14- Hackeando Metasploitable 2 en el laboratorio completo', duration: '28:26 min', thumbnail: 'https://img.youtube.com/vi/Y-Z2z6rjErs/mqdefault.jpg', description: 'laboratorio final del curso de Ethical Hacking.' }
-];
+        const videosData = [
+            { id: '8jDDwgx4Hrw', title: '1. Introducción al Ethical Hacking', duration: '10:24 min', thumbnail: 'https://img.youtube.com/vi/8jDDwgx4Hrw/mqdefault.jpg', description: 'Comenzamos explorando qué es el Ethical Hacking y por qué es importante en la ciberseguridad.' },
+            { id: 't8wJwgYlI64', title: '2. Fundamentos de Redes', duration: '11:07 min', thumbnail: 'https://img.youtube.com/vi/t8wJwgYlI64/mqdefault.jpg', description: 'Se explican los conceptos básicos de redes, protocolos y cómo se conectan los sistemas.' },
+            { id: 'DKi1lqi9omo', title: '3. Modelos OSI y TCP/IP', duration: '23:23 min', thumbnail: 'https://img.youtube.com/vi/DKi1lqi9omo/mqdefault.jpg', description: 'Comprensión de los modelos de comunicación en red esenciales para un hacker ético.' },
+            { id: 'AZiPuKdn1bM', title: '4. Herramientas de Análisis de Red', duration: '17:22 min', thumbnail: 'https://img.youtube.com/vi/AZiPuKdn1bM/mqdefault.jpg', description: 'Exploración de herramientas clave como Wireshark y su uso en el análisis de tráfico.' },
+            { id: 'L8teBS2lryI', title: '5. Reconocimiento Pasivo', duration: '14:33 min', thumbnail: 'https://img.youtube.com/vi/L8teBS2lryI/mqdefault.jpg', description: 'Técnicas para recolectar información sin interactuar directamente con los objetivos.' },
+            { id: '6Mvg27n9SME', title: '6. Reconocimiento Activo', duration: '24:57 min', thumbnail: 'https://img.youtube.com/vi/6Mvg27n9SME/mqdefault.jpg', description: 'Cómo interactuar directamente con el sistema objetivo para descubrir información útil.' },
+            // video 7 no disponible
+            { id: 'uP0awE8bRL8', title: '8. Escaneo de Puertos con Nmap', duration: '15:00 min', thumbnail: 'https://img.youtube.com/vi/uP0awE8bRL8/mqdefault.jpg', description: 'Aprende a usar Nmap para identificar puertos abiertos y servicios disponibles.' },
+            { id: 'FKPOek2Z5yA', title: '9. Vulnerabilidades y Exploits', duration: '2:43 min', thumbnail: 'https://img.youtube.com/vi/FKPOek2Z5yA/mqdefault.jpg', description: 'Introducción a cómo encontrar y explotar vulnerabilidades en sistemas.' },
+            { id: 'PDHkzPiUx8w', title: '10. Ingeniería Social', duration: '21:01 min', thumbnail: 'https://img.youtube.com/vi/PDHkzPiUx8w/mqdefault.jpg', description: 'Técnicas de manipulación psicológica para obtener acceso no autorizado.' },
+            { id: 'gIhCBO6mbQc', title: '11. Ataques a Contraseñas', duration: 'Loading... min', thumbnail: 'https://img.youtube.com/vi/gIhCBO6mbQc/mqdefault.jpg', description: 'Exploración de ataques comunes como fuerza bruta y diccionario.' },
+            { id: 'Vtk7eLtE-YU', title: '12. Metasploit Framework', duration: '8:42 min', thumbnail: 'https://img.youtube.com/vi/Vtk7eLtE-YU/mqdefault.jpg', description: 'Uso básico de Metasploit para ejecutar exploits contra sistemas vulnerables.' },
+            { id: '2cSY5NY-xI4', title: '13. Reportes y Buenas Prácticas', duration: '10:50 min', thumbnail: 'https://img.youtube.com/vi/2cSY5NY-xI4/mqdefault.jpg', description: 'Cómo documentar los hallazgos y recomendaciones éticas del proceso de hacking.' },
+            { id: 'Y-Z2z6rjErs', title: '14- Hackeando Metasploitable 2 en el laboratorio completo', duration: '28:26 min', thumbnail: 'https://img.youtube.com/vi/Y-Z2z6rjErs/mqdefault.jpg', description: 'laboratorio final del curso de Ethical Hacking.' }
+        ];
 
         // Función para añadir un comentario (simulado, sin persistencia)
         document.getElementById('submit-comment').addEventListener('click', function () {
@@ -280,7 +284,7 @@
         });
 
         // Función para cambiar el video principal y su descripción
-        function changeVideo(videoId) {
+        /*function changeVideo(videoId) {
             const video = videosData.find(v => v.id === videoId);
             if (video) {
                 const iframe = document.getElementById('main-video-player');
@@ -290,7 +294,23 @@
                 document.getElementById('main-video-title').textContent = video.title;
                 document.getElementById('main-video-description').textContent = video.description;
             }
+        }*/
+
+        function changeVideo(videoId) {
+            const video = videosData.find(v => v.id === videoId);
+            if (video) {
+                const iframe = document.getElementById('main-video-player');
+                iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=0&controls=1&showinfo=0&rel=0`;
+
+                // Actualizar el título y la descripción del video principal
+                document.getElementById('main-video-title').textContent = video.title;
+                document.getElementById('main-video-description').textContent = video.description;
+
+                // 👇 Hacer foco en el reproductor principal
+                iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
+
 
         // Función para cargar videos dinámicamente en la lista
         function loadVideos() {
