@@ -285,6 +285,41 @@
                 duration: '12:28 min',
                 thumbnail: 'https://img.youtube.com/vi/CKzaM8S_T8o/mqdefault.jpg',
                 description: 'Una clase directa al punto, con los fundamentos esenciales de HTML y CSS para comenzar a crear tus primeras páginas.'
+            },
+            {
+                id: '97-l__EQn2k',
+                title: '6. Hola mundo con JavaScript',
+                duration: '6:57 min',
+                thumbnail: 'https://img.youtube.com/vi/97-l__EQn2k/mqdefault.jpg',
+                description: 'Tu primer programa con JavaScript: escribimos "Hola Mundo" y vemos cómo conectarlo con HTML.'
+            },
+            {
+                id: 'FhGmbL_SjGc',
+                title: '7. Hola mundo con prompt',
+                duration: '4:27 min',
+                thumbnail: 'https://img.youtube.com/vi/FhGmbL_SjGc/mqdefault.jpg',
+                description: 'Mostramos cómo usar `prompt()` en JavaScript para interactuar con el usuario a través de entradas de texto.'
+            },
+            {
+                id: 'wkO71O74Ld8',
+                title: '8. Variables en JavaScript',
+                duration: '8:19 min',
+                thumbnail: 'https://img.youtube.com/vi/wkO71O74Ld8/mqdefault.jpg',
+                description: 'Aprendé cómo declarar variables usando `let`, `const` y `var`, y cuál es la diferencia entre ellas.'
+            },
+            {
+                id: 'wyg9jQd7xZc',
+                title: '9. Operadores en JavaScript',
+                duration: '4:47 min',
+                thumbnail: 'https://img.youtube.com/vi/wyg9jQd7xZc/mqdefault.jpg',
+                description: 'Explicación de los operadores matemáticos, lógicos y de comparación en JavaScript con ejemplos prácticos.'
+            },
+            {
+                id: 'wWC7CLI1__g',
+                title: '10. Template Strings',
+                duration: '4:07 min',
+                thumbnail: 'https://img.youtube.com/vi/wWC7CLI1__g/mqdefault.jpg',
+                description: 'Descubrí cómo usar Template Strings para concatenar variables dentro de strings de forma elegante.'
             }
         ];
 
@@ -305,18 +340,7 @@
             }
         });
 
-        // Función para cambiar el video principal y su descripción
-        /*function changeVideo(videoId) {
-            const video = videosData.find(v => v.id === videoId);
-            if (video) {
-                const iframe = document.getElementById('main-video-player');
-                iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=0&controls=1&showinfo=0&rel=0`;
-
-                // Actualizar el título y la descripción del video principal
-                document.getElementById('main-video-title').textContent = video.title;
-                document.getElementById('main-video-description').textContent = video.description;
-            }
-        }*/
+        
 
         function changeVideo(videoId) {
             const video = videosData.find(v => v.id === videoId);
